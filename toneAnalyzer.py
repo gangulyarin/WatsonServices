@@ -9,14 +9,16 @@ tone_analyzer = ToneAnalyzerV3(
 )
 
 tone_analyzer.set_service_url('https://api.eu-gb.tone-analyzer.watson.cloud.ibm.com/instances/ebf5130d-3c9a-4020-a9a8-7582ecf6d8bb')
+def sendTone(text):
 
-text = 'Team, I know that times are tough! Product '\
-    'sales have been disappointing for the past three '\
-    'quarters. We have a competitive product, but we '\
-    'need to do a better job of selling it!'
-
-tone_analysis = tone_analyzer.tone(
-    {'text': text},
-    content_type='application/json'
-).get_result()
-print(json.dumps(tone_analysis, indent=2))
+    """text = 'Team, I know that times are tough! Product '\
+        'sales have been disappointing for the past three '\
+        'quarters. We have a competitive product, but we '\
+        'need to do a better job of selling it!'
+    """
+    tone_analysis = tone_analyzer.tone(
+        {'text': text},
+        content_type='application/json'
+    ).get_result()
+    #print(json.dumps(tone_analysis, indent=2))
+    return json.dumps(tone_analysis, indent=2)
